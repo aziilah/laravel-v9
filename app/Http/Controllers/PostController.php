@@ -18,8 +18,12 @@ class PostController extends Controller
     {   
 
         //  Post::where('body', 'like', '%tempora%')->count();
-        Post::whereFullText('body', 'tempora')->get();
 
+        // // use FullText
+        // Post::whereFullText('body', 'tempora')->get();
+
+        Post::search('tempora')->get();
+        
          return 'ok';
 
         // method index to method show
