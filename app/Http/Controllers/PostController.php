@@ -17,7 +17,8 @@ class PostController extends Controller
     public function index()
     {   
 
-         Post::where('body', 'like', '%tempora%')->count();
+        //  Post::where('body', 'like', '%tempora%')->count();
+        Post::whereFullText('body', 'tempora')->get();
 
          return 'ok';
 
