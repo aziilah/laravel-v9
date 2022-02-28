@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Exception;
+use App\Models\Post;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 
@@ -15,9 +16,14 @@ class PostController extends Controller
      */
     public function index()
     {   
+
+         Post::where('body', 'like', '%tempora%')->count();
+
+         return 'ok';
+
         // method index to method show
         // return redirect()->route('detail_post', ['id' => 10]);
-        return to_route('detail_post', ['id' => 15]);
+        // return to_route('detail_post', ['id' => 15]);
 
         // // $name =  Str::snake('Nur Aziilah');
         // return Str::reverse(Str::snake('Nur Aziilah'));     //HALIIZA RUN
